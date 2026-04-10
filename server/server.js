@@ -45,6 +45,14 @@ app.use((err, req, res, next) => {
     message: err.message || "Server Error",
   });
 });
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+
+app.use(notFound);
+app.use(errorHandler);
+
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+
+app.use("/api/dashboard", dashboardRoutes);
 
 // Start server (MUST BE LAST)
 const PORT = process.env.PORT || 5000;

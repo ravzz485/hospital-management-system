@@ -1,0 +1,10 @@
+import express from "express";
+import { getDashboardStats } from "../controllers/dashboardController.js";
+import { protect, authorizeRoles } from "../middleware/authMiddleware.js";
+
+const router = express.Router();
+
+// ✅ FIXED: correct function name
+router.get("/admin", protect, authorizeRoles("admin"), getDashboardStats);
+
+export default router;
