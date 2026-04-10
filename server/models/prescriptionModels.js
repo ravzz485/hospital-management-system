@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 const medicationSchema = mongoose.Schema({
+  medicineId: { type: mongoose.Schema.Types.ObjectId, ref: "Medicine", required: true }, // NEW
   name: { type: String, required: true },
-  dosage: { type: String, required: true },      // e.g., 500mg
-  frequency: { type: String, required: true },   // e.g., 2x/day
-  duration: { type: String, required: true },    // e.g., 5 days
+  dosage: { type: String, required: true },
+  frequency: { type: String, required: true },
+  duration: { type: String, required: true },
 });
 
 const prescriptionSchema = mongoose.Schema(

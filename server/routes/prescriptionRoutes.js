@@ -28,4 +28,6 @@ router
   .put(protect, updatePrescription) // ✅ FIXED (was wrong before)
   .delete(protect, admin, deletePrescription);
 
+router.route("/:id/pdf").get(protect, generatePrescriptionPDF);  
+
 export default router;
